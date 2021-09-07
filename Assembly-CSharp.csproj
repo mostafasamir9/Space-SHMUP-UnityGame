@@ -65,10 +65,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\__Scripts\Enemy.cs" />
+    <Compile Include="Assets\__Scripts\Enemy_1.cs" />
+    <Compile Include="Assets\__Scripts\Enemy_2.cs" />
+    <Compile Include="Assets\__Scripts\Enemy_3.cs" />
+    <Compile Include="Assets\__Scripts\Enemy_4.cs" />
     <Compile Include="Assets\__Scripts\Hero.cs" />
     <Compile Include="Assets\__Scripts\Main.cs" />
+    <Compile Include="Assets\__Scripts\PowerUp.cs" />
+    <Compile Include="Assets\__Scripts\Projectile.cs" />
     <Compile Include="Assets\__Scripts\Shield.cs" />
     <Compile Include="Assets\__Scripts\Utils.cs" />
+    <Compile Include="Assets\__Scripts\Weapon.cs" />
     <None Include="Assets\_Materials\UnlitAlpha.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/workspace/Space SHMUP Prototype/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
