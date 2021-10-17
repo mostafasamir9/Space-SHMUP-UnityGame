@@ -87,31 +87,37 @@ public class Main : MonoBehaviour {
 
 	public void Restart(){
 		// Reload __Scene_0 to restart the game
-		Application.LoadLevel ("__Scene_0");
+		Application.LoadLevel("End");
 	}
 
-	public void ShipDestroyed(Enemy e){
+	public void ShipDestroyed(Enemy e, int flag){
 		// Potentially generate a PowerUp
-		if (Random.value <= e.powerUpDropChance) {
-			// Random.value generates a value between 0 & 1 (though never == 1)
-
-			// choose which PowerUp to pick
-			// pick one from the possibilities in powerUpFrequency
-			int ndx = Random.Range(0, powerUpFrequency.Length);
-			WeaponType puType = powerUpFrequency[ndx];
-
-			int n = Random.Range(0, 10/rateOfPower);
-			if (n >= 9/ rateOfPower)
+		if (flag == 0)
+		{
+			if (Random.value <= e.powerUpDropChance)
 			{
-				// Spawn a PowerUp
-				GameObject go = Instantiate(prefabPowerUp) as GameObject;
-				PowerUp pu = go.GetComponent<PowerUp>();
-				// Set it to the proper WeaponType
-				pu.SetType(puType);
+				// Random.value generates a value between 0 & 1 (though never == 1)
 
-				//Set it to the position of the destroyed ship
-				pu.transform.position = e.transform.position;
+				// choose which PowerUp to pick
+				// pick one from the possibilities in powerUpFrequency
+				int ndx = Random.Range(0, powerUpFrequency.Length);
+				WeaponType puType = powerUpFrequency[ndx];
+
+				int n = Random.Range(0, 10 / rateOfPower);
+				if (n >= 9 / rateOfPower)
+				{
+					// Spawn a PowerUp
+					GameObject go = Instantiate(prefabPowerUp) as GameObject;
+					PowerUp pu = go.GetComponent<PowerUp>();
+					// Set it to the proper WeaponType
+					pu.SetType(puType);
+
+					//Set it to the position of the destroyed ship
+					pu.transform.position = e.transform.position;
+				}
 			}
+
+			Score.S.IncreaseScore(100);
 		}
 	}
 }

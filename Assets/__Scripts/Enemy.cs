@@ -94,8 +94,13 @@ public class Enemy : MonoBehaviour {
 			// Get the damage amount from the Projectile.type & Main.W_DEFS
 			health -= Main.W_DEFS[p.type].damageOnHit;
 			if(health <= 0){
-				// Tell the Main singleton that this ship has been destroyed
-				Main.S.ShipDestroyed(this);
+					int flag = 0;
+					// Tell the Main singleton that this ship has been destroyed
+					if (flag == 0)
+					{
+						Main.S.ShipDestroyed(this,flag);
+						flag = 1;
+					}
 				// Destroy this Enemy
 				Destroy(this.gameObject);
 			}

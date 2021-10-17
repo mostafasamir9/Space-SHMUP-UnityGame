@@ -142,7 +142,8 @@ public class Enemy_4 : Enemy
 
 				if (allDestroyed)
 				{
-					Main.S.ShipDestroyed(this);
+					int flag = 0;
+					Main.S.ShipDestroyed(this,flag);
 					Destroy(this.gameObject);
 				}
 

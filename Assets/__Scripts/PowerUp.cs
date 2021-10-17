@@ -92,7 +92,10 @@ public class PowerUp : MonoBehaviour {
 		// This function is called by the Hero class when a PowerUp is collected
 		// We could tween into the target and shrink in size,
 		// but for now, just destroy this.gameObject
-		Destroy (this.gameObject);                             
+		Destroy (this.gameObject);
+
+		Score.S.IncreaseScore(50);
+
 	}
 
 	void CheckOffscreen(){
